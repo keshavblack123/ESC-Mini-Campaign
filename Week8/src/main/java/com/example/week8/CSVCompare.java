@@ -12,9 +12,9 @@ import java.util.Scanner;
 public class CSVCompare {
 
     public static void main(String[] args) {
-        String file1Path = "/Users/keshavnatarajan/Documents/SUTD/Term 5/Software Construction/ESC Mini Campaign/Week8/sample_file_1.csv";
-        String file3Path = "/Users/keshavnatarajan/Documents/SUTD/Term 5/Software Construction/ESC Mini Campaign/Week8/sample_file_3.csv";
-        String outputFile = "/Users/keshavnatarajan/Documents/SUTD/Term 5/Software Construction/ESC Mini Campaign/Week8/output_file.csv";
+        String file1Path = "<Pathname to first CSV File>";
+        String file3Path = "<Pathname to second CSV File>";
+        String outputFile = "<Pathname to output CSV File>";
 
         Scanner parser1 = null;
         try {
