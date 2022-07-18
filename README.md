@@ -1,6 +1,6 @@
 # ESC-Mini-Campaign
 
-Week 8 Submission:
+### Week 8 Submission:
 
 Submission for Week 8 code:
 The file CSVCompare.java compares 2 CSV files and outputs any different data in the lines of the CSV file.
@@ -20,6 +20,6 @@ Run the file and observe what is shown in the output CSV file.
 
 Use case diagrams contained in "Other Submissions Folder"
 
-Week 9 Submission:
+### Week 9 Submission:
 
 PDF contained in "Other Submissions Folder"
