@@ -22,4 +22,4 @@ Use case diagrams contained in "Other Submissions Folder"
 
 ### Week 9 Submission:
 
-PDF contained in "Other Submissions Folder"
+PDF contained in "Other Submissions" folder
