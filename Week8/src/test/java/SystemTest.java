@@ -59,7 +59,7 @@ public class SystemTest {
     @Test
     public void testAllOutOfOrder(){
         String path1 = globalPath + "testAllOutOfOrder/allOutOfOrder1.csv";
-        String path2 = globalPath + "testAllOutOfOrder/allOutOfOrder1.csv";
+        String path2 = globalPath + "testAllOutOfOrder/allOutOfOrder2.csv";
         String outPath = globalPath + "testAllOutOfOrder/allOutOfOrderOutput.csv";
 
         PrintWriter writer = CSVCompare.getWriter(outPath);

@@ -45,7 +45,7 @@ public class UnitTest {
         String path2 = globalPath + "test1AdditionalAccount/additionalAccount2.csv";
         Scanner parser1 = CSVCompare.getParser(path1);
         Scanner parser2 = CSVCompare.getParser(path2);
-        Boolean out = CSVCompare.checkExtraLines(parser1, parser2);
+        Boolean out = CSVCompare.checkExtraLines(path1, path2);
         assertFalse(out);
     }
 
@@ -55,7 +55,7 @@ public class UnitTest {
         String path2 = globalPath + "testManyAdditionalAccount/manyAdditions2.csv";
         Scanner parser1 = CSVCompare.getParser(path1);
         Scanner parser2 = CSVCompare.getParser(path2);
-        Boolean out = CSVCompare.checkExtraLines(parser1, parser2);
+        Boolean out = CSVCompare.checkExtraLines(path1, path2);
         assertFalse(out);
     }
 
@@ -65,15 +65,15 @@ public class UnitTest {
         String path2 = globalPath + "testNoExtraAccounts/NoExtra2.csv";
         Scanner parser1 = CSVCompare.getParser(path1);
         Scanner parser2 = CSVCompare.getParser(path2);
-        Boolean out = CSVCompare.checkExtraLines(parser1, parser2);
+        Boolean out = CSVCompare.checkExtraLines(path1, path2);
         assertTrue(out);
     }
 
     @Test
     public void testCountLine(){
         String path = globalPath + "testCountLine.csv";
-        Scanner parser = CSVCompare.getParser(path);
-        int lines = CSVCompare.countLines(parser);
-        assertTrue(lines == 24);
+//        Scanner parser = CSVCompare.getParser(path);
+        int lines = CSVCompare.countLines(path);
+        assertTrue(lines == 25);
     }
 }

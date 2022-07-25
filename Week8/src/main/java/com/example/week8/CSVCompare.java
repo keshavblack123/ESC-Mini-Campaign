@@ -1,8 +1,11 @@
 package com.example.week8;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -65,8 +68,8 @@ public class CSVCompare {
     Checks if one file has more lines than another file
     If one file has more lines, the user will be notified which file has extra accounts
      */
-    public static Boolean checkExtraLines (Scanner parser1, Scanner parser2){
-        int difference = countLines(parser1) - countLines(parser2);
+    public static Boolean checkExtraLines (String file1, String file2){
+        int difference = countLines(file1) - countLines(file2);
         if (difference == 0){
             return true;
         }
@@ -96,7 +99,7 @@ public class CSVCompare {
             System.out.println("\nAddress error in File 2");
             return false;
         }
-        else if (!checkExtraLines(parser1, parser2)){ //Addresses Additional Accounts in 1 file
+        else if (!checkExtraLines(filePath1, filePath2)){ //Addresses Additional Accounts in 1 file
             System.out.println("\nAddress error in respective File");
             return false;
         }
@@ -104,12 +107,19 @@ public class CSVCompare {
     }
 
     //Helper function for checkExtraLines
-    public static int countLines(Scanner parser){
-        int count = 0;
-        while(parser.hasNextLine()){
-            count++;
+    public static int countLines(String file){
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            int count = 0;
+            while (reader.readLine() != null) count++;
+            return count;
         }
-        return count;
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     //Get the writer to write to the output file
