@@ -52,7 +52,7 @@ public class SystemTest {
         PrintWriter writer = CSVCompare.getWriter(outPath);
 
         assertFalse(CSVCompare.cleanFiles(path1, path2)); //Expected output to fail
-        CSVCompare.compareLines(path1, path2, writer); //Expected output "Failed"
+//        CSVCompare.compareLines(path1, path2, writer); //Expected output "Failed"
         //Error in file 1, No output CSV created
     }
 
@@ -65,7 +65,7 @@ public class SystemTest {
         PrintWriter writer = CSVCompare.getWriter(outPath);
 
         assertFalse(CSVCompare.cleanFiles(path1, path2)); //Expected output to fail
-        CSVCompare.compareLines(path1, path2, writer); //Expected output "Failed"
+//        CSVCompare.compareLines(path1, path2, writer); //Expected output "Failed"
         //Error in file 2, No output CSV created
     }
 
@@ -78,7 +78,7 @@ public class SystemTest {
         PrintWriter writer = CSVCompare.getWriter(outPath);
 
         assertFalse(CSVCompare.cleanFiles(path1, path2)); //Expected output to fail
-        CSVCompare.compareLines(path1, path2, writer); //Expected output "Failed"
+//        CSVCompare.compareLines(path1, path2, writer); //Expected output "Failed"
         //Error in file 1, No output CSV created
     }
 
@@ -91,7 +91,7 @@ public class SystemTest {
         PrintWriter writer = CSVCompare.getWriter(outPath);
 
         assertFalse(CSVCompare.cleanFiles(path1, path2)); //Expected output to fail
-        CSVCompare.compareLines(path1, path2, writer); //Expected output "Failed"
+//        CSVCompare.compareLines(path1, path2, writer); //Expected output "Failed"
         //Error in file 2, No output CSV created
     }
 
