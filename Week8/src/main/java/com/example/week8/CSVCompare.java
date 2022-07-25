@@ -28,6 +28,7 @@ public class CSVCompare {
         }
     }
 
+    //Gets the reader for the CSV files
     public static Scanner getParser (String filePath){
         Scanner parser = null;
         try {
@@ -37,7 +38,11 @@ public class CSVCompare {
         }
         return parser;
     }
-
+    /*
+    Checks if a file's list of accounts are ordered by their ID numbers
+    If their ID numbers are not in a consecutive order,
+    it will notify the user which accounts are not in order
+     */
     public static boolean AccountsOrdered (Scanner parser){
         Integer i = 1;
         ArrayList<String> mismatch = new ArrayList();
@@ -59,7 +64,10 @@ public class CSVCompare {
         }
         return true;
     }
-
+    /*
+    Checks if one file has more lines than another file
+    If one file has more lines, the user will be notified which file has extra accounts
+     */
     public static Boolean checkExtraLines (Scanner parser1, Scanner parser2){
         ArrayList<String> mismatch = new ArrayList();
         int difference = countLines(parser1) - countLines(parser2);
@@ -75,7 +83,12 @@ public class CSVCompare {
             return false;
         }
     }
-
+    /*
+    So that only 1 function needs to be called in the main function
+    checkExtraLines is called after AccountsOrdered as missing accounts and the wrong order of accounts should be addressed beforehand
+    Shows the order in which the files need to be checked:
+    Make sure accounts are in consecutive order --> Check that they have the same number of accounts in each file
+     */
     public static Boolean cleanFiles (Scanner parser1, Scanner parser2){
         if (!AccountsOrdered(parser1)){ //Addresses unordered list or missing accounts
             System.out.println("\nAddress error in File 1");
@@ -92,6 +105,7 @@ public class CSVCompare {
         return true;
     }
 
+    //Helper function for checkExtraLines
     public static int countLines(Scanner parser){
         int count = 0;
         while(parser.hasNextLine()){
@@ -100,6 +114,7 @@ public class CSVCompare {
         return count;
     }
 
+    //Get the writer to write to the output file
     public static PrintWriter getWriter (String outputPath){
         File file = null;
         PrintWriter writer = null;
@@ -114,7 +129,11 @@ public class CSVCompare {
         }
         return writer;
     }
-
+    /*
+    Called after all checks are complete
+    And all input files pass the tests
+    Compares the 2 files for mismatch in account balance
+     */
     public static void compareLines (Scanner parser1, Scanner parser2, PrintWriter writer){
         while (parser1.hasNextLine()){
             String line1 = parser1.nextLine();
