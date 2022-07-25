@@ -13,14 +13,11 @@ public class CSVCompare {
         String file1Path = "/Users/keshavnatarajan/Documents/GitHub/ESC-Mini-Campaign/Week8/sample_file_1.csv"; //<Pathname to first CSV File>
         String file3Path = "/Users/keshavnatarajan/Documents/GitHub/ESC-Mini-Campaign/Week8/sample_file_3.csv"; //<Pathname to second CSV File>
         String outputFile = "/Users/keshavnatarajan/Documents/GitHub/ESC-Mini-Campaign/Week8/output_file.csv"; //<Pathname to output CSV File>
-        String unOrdered = "/Users/keshavnatarajan/Documents/GitHub/ESC-Mini-Campaign/TestFiles/testUnorderedAccounts.csv";
+        String unOrdered = "/Users/keshavnatarajan/Documents/GitHub/ESC-Mini-Campaign/TestFiles/UnitTests/testUnorderedAccounts.csv";
 
-        Scanner parser1 = getParser(file1Path);
-        Scanner parser3 = getParser(file3Path);
-
-        if (cleanFiles(parser1, parser3)){
+        if (cleanFiles(file1Path, file3Path)){
             PrintWriter writer = getWriter(outputFile);
-            compareLines(parser1, parser3, writer);
+            compareLines(file1Path, file3Path, writer);
             System.out.println("Passed!!\nOutput file produced at this address:\n" + outputFile);
         }
         else{
@@ -69,7 +66,6 @@ public class CSVCompare {
     If one file has more lines, the user will be notified which file has extra accounts
      */
     public static Boolean checkExtraLines (Scanner parser1, Scanner parser2){
-        ArrayList<String> mismatch = new ArrayList();
         int difference = countLines(parser1) - countLines(parser2);
         if (difference == 0){
             return true;
@@ -89,7 +85,9 @@ public class CSVCompare {
     Shows the order in which the files need to be checked:
     Make sure accounts are in consecutive order --> Check that they have the same number of accounts in each file
      */
-    public static Boolean cleanFiles (Scanner parser1, Scanner parser2){
+    public static Boolean cleanFiles (String filePath1, String filePath2){
+        Scanner parser1 = getParser(filePath1);
+        Scanner parser2 = getParser(filePath2);
         if (!AccountsOrdered(parser1)){ //Addresses unordered list or missing accounts
             System.out.println("\nAddress error in File 1");
             return false;
@@ -132,9 +130,11 @@ public class CSVCompare {
     /*
     Called after all checks are complete
     And all input files pass the tests
-    Compares the 2 files for mismatch in account balance
+    Compares the 2 files for mismatch in accounts
      */
-    public static void compareLines (Scanner parser1, Scanner parser2, PrintWriter writer){
+    public static void compareLines (String filePath1, String filePath2, PrintWriter writer){
+        Scanner parser1 = getParser(filePath1);
+        Scanner parser2 = getParser(filePath2);
         while (parser1.hasNextLine()){
             String line1 = parser1.nextLine();
             String line3 = parser2.nextLine();

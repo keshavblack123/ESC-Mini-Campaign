@@ -16,13 +16,9 @@ public class SystemTest {
         String path2 = globalPath + "testSingleMismatch/singleMismatch2.csv";
         String outPath = globalPath + "testSingleMismatch/singleMismatchOutput.csv";
 
-        Scanner parser1 = CSVCompare.getParser(path1);
-        Scanner parser2 = CSVCompare.getParser(path2);
         PrintWriter writer = CSVCompare.getWriter(outPath);
-
-        assertTrue(CSVCompare.cleanFiles(parser1, parser2)); //Expected output to pass
-
-        CSVCompare.compareLines(parser1, parser2, writer); //Expected output "Passed"
+        assertTrue(CSVCompare.cleanFiles(path1, path2)); //Expected output to pass
+        CSVCompare.compareLines(path1, path2, writer); //Expected output "Passed"
     }
 
     @Test
@@ -35,9 +31,9 @@ public class SystemTest {
         Scanner parser2 = CSVCompare.getParser(path2);
         PrintWriter writer = CSVCompare.getWriter(outPath);
 
-        assertTrue(CSVCompare.cleanFiles(parser1, parser2)); //Expected output to pass
+        assertTrue(CSVCompare.cleanFiles(path1, path2)); //Expected output to pass
 
-        CSVCompare.compareLines(parser1, parser2, writer); //Expected output "Passed"
+        CSVCompare.compareLines(path1, path2, writer); //Expected output "Passed"
     }
 
     @Test
@@ -50,9 +46,9 @@ public class SystemTest {
         Scanner parser2 = CSVCompare.getParser(path2);
         PrintWriter writer = CSVCompare.getWriter(outPath);
 
-        assertTrue(CSVCompare.cleanFiles(parser1, parser2)); //Expected output to pass
+        assertTrue(CSVCompare.cleanFiles(path1, path2)); //Expected output to pass
 
-        CSVCompare.compareLines(parser1, parser2, writer); //Expected output "Passed"
+        CSVCompare.compareLines(path1, path2, writer); //Expected output "Passed"
         //Empty output file will be produced
     }
 
@@ -66,9 +62,9 @@ public class SystemTest {
         Scanner parser2 = CSVCompare.getParser(path2);
         PrintWriter writer = CSVCompare.getWriter(outPath);
 
-        assertFalse(CSVCompare.cleanFiles(parser1, parser2)); //Expected output to fail
+        assertFalse(CSVCompare.cleanFiles(path1, path2)); //Expected output to fail
 
-        CSVCompare.compareLines(parser1, parser2, writer); //Expected output "Failed"
+        CSVCompare.compareLines(path1, path2, writer); //Expected output "Failed"
         //Error in file 1, No output CSV created
     }
 
@@ -82,9 +78,9 @@ public class SystemTest {
         Scanner parser2 = CSVCompare.getParser(path2);
         PrintWriter writer = CSVCompare.getWriter(outPath);
 
-        assertFalse(CSVCompare.cleanFiles(parser1, parser2)); //Expected output to fail
+        assertFalse(CSVCompare.cleanFiles(path1, path2)); //Expected output to fail
 
-        CSVCompare.compareLines(parser1, parser2, writer); //Expected output "Failed"
+        CSVCompare.compareLines(path1, path2, writer); //Expected output "Failed"
         //Error in file 2, No output CSV created
     }
 
@@ -98,9 +94,9 @@ public class SystemTest {
         Scanner parser2 = CSVCompare.getParser(path2);
         PrintWriter writer = CSVCompare.getWriter(outPath);
 
-        assertFalse(CSVCompare.cleanFiles(parser1, parser2)); //Expected output to fail
+        assertFalse(CSVCompare.cleanFiles(path1, path2)); //Expected output to fail
 
-        CSVCompare.compareLines(parser1, parser2, writer); //Expected output "Failed"
+        CSVCompare.compareLines(path1, path2, writer); //Expected output "Failed"
         //Error in file 1, No output CSV created
     }
 
@@ -114,9 +110,9 @@ public class SystemTest {
         Scanner parser2 = CSVCompare.getParser(path2);
         PrintWriter writer = CSVCompare.getWriter(outPath);
 
-        assertFalse(CSVCompare.cleanFiles(parser1, parser2)); //Expected output to fail
+        assertFalse(CSVCompare.cleanFiles(path1, path2)); //Expected output to fail
 
-        CSVCompare.compareLines(parser1, parser2, writer); //Expected output "Failed"
+        CSVCompare.compareLines(path1, path2, writer); //Expected output "Failed"
         //Error in file 2, No output CSV created
     }
 
