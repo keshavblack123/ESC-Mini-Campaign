@@ -126,8 +126,6 @@ public class FuzzerTest {
         int lineNum2 = r.nextInt(n);
         int smaller = 1;
         int larger = 2;
-        System.out.println(lineNum1);
-        System.out.println(lineNum2);
         if (lineNum1 < lineNum2){
             smaller = lineNum1;
             larger = lineNum2;
