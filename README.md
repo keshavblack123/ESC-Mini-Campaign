@@ -6,8 +6,8 @@ The file CSVCompare.java compares 2 CSV files and outputs any different data in 
 To run it, first clone the repository and open it on Android Studio
 
 Simply run the program as it is to compare the 2 sample files  
-If you wish to compare other sample files, you could drop them in the Week 8 folder and change the filepaths in the main function to the name of your CSV file:
-`String file1Path = globalPath + "/sample_file_1.csv";`
+If you wish to compare other sample files, you could drop them in the Week 8 folder and change the filepaths in the main function to the name of your CSV file:  
+`String file1Path = globalPath + "/sample_file_1.csv";`  
 `String file3Path = globalPath + "/sample_file_3.csv";`  
 
 The sample files are here as well in the "Week8" folder  
